@@ -1,33 +1,9 @@
 
-
-# Set the name of the project and target:
-
-SET(TARGET "Brain_growth")
-
-# Declare all source files the target consists of. Here, this is only
-# the one step-X.cc file, but as you expand your project you may wish
-# to add other source files as well. If your project becomes much larger,
-# you may want to either replace the following statement by something like
-#    FILE(GLOB_RECURSE TARGET_SRC  "source/*.cc")
-#    FILE(GLOB_RECURSE TARGET_INC  "include/*.h")
-#    SET(TARGET_SRC ${TARGET_SRC}  ${TARGET_INC}) 
-# or switch altogether to the large project CMakeLists.txt file discussed
-# in the "CMake in user projects" page accessible from the "User info"
-# page of the documentation.
-
-include_directories(includes)
-
-SET(TARGET_SRC
-  ${TARGET}.cc
-  )
-
-# Usually, you will not need to modify anything beyond this point...
-
-CMAKE_MINIMUM_REQUIRED(VERSION 3.25.2)
+CMAKE_MINIMUM_REQUIRED(VERSION 3.25.0)
 
 
-FIND_PACKAGE(deal.II 9.4 QUIET
-  HINTS ${deal.II_DIR} ${DEAL_II_DIR} /Users/saeed/dealii-candi/deal.II-v9.4.0/ $ENV{DEAL_II_DIR}
+FIND_PACKAGE(deal.II 9.3 QUIET
+  HINTS ${deal.II_DIR} ${DEAL_II_DIR} $ENV{DEAL_II_DIR}
   )
 IF(NOT ${deal.II_FOUND})
   MESSAGE(FATAL_ERROR "\n"
@@ -37,10 +13,17 @@ IF(NOT ${deal.II_FOUND})
     )
 ENDIF()
 
-
-
 DEAL_II_INITIALIZE_CACHED_VARIABLES()
-PROJECT(${TARGET})
-DEAL_II_INVOKE_AUTOPILOT()
+
+project(brain_growth)
+
+add_executable(brain_growth brain_growth.cc)
+
+target_include_directories(brain_growth PUBLIC include)
+
+
+DEAL_II_SETUP_TARGET(brain_growth)
+
+#DEAL_II_INVOKE_AUTOPILOT()
 
 

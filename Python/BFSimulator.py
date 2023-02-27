@@ -15,7 +15,7 @@ from PIL.Image import Resampling
 import time
 import psutil
 import webbrowser
-
+import os
 
 #================================================== the main windows =================================================
 Image.MAX_IMAGE_PIXELS = 1000000000
@@ -385,7 +385,7 @@ def update_parameters():
             
         sys.stdout.write(line)
 
-    make_run = subprocess.Popen(['./make_run.py', def_case.get()])
+    make_run = subprocess.Popen(['python','make_run.py', def_case.get()],env=os.environ)
     root.destroy()
     
 #=============================== set_default_values function ================================================================

@@ -286,7 +286,7 @@ if not exists(cmake_file):
 if not exists(make_file):
     subprocess.run(['make'])
     
-progress = subprocess.Popen('./progress.py')
+progress = subprocess.Popen(['python','progress.py'])
 subprocess.run(['./Brain_growth', 'Parameters.prm',  sys.argv[1]])
 
 #for process in psutil.process_iter():
