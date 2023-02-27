@@ -1,0 +1,3 @@
+/home/jan/Projects/BrainFold/Code/BFSimulator/build/CMakeFiles/brain_growth.dir
+/home/jan/Projects/BrainFold/Code/BFSimulator/build/CMakeFiles/edit_cache.dir
+/home/jan/Projects/BrainFold/Code/BFSimulator/build/CMakeFiles/rebuild_cache.dir
